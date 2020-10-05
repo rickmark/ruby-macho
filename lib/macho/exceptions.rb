@@ -214,6 +214,8 @@ module MachO
   end
 
   # Raised when attempting to decompress a compressed Mach-O without adequate
+    def initialize(meth, lc_sym)
+      super "Method #{meth} can't be used on __LINKEDIT data commands of type #{lc_sym}"
   # dependencies, or on other decompression errors.
   class DecompressionError < MachOError
   end

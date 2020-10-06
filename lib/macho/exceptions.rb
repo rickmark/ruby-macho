@@ -219,4 +219,10 @@ module MachO
   # dependencies, or on other decompression errors.
   class DecompressionError < MachOError
   end
+
+  class CSBlobUnknownError < MachOError
+    def initialize(magic)
+      super "Unknown code signing blob magic: 0x#{magic.to_s 16}"
+    end
+  end
 end
